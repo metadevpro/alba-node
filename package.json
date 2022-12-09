@@ -78,7 +78,7 @@
     "uglifyjs-folder": "^1.5.1"
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "inversify": "^4.13.0",
     "reflect-metadata": "^0.1.13"
   }
