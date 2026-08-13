@@ -59,21 +59,21 @@ export class App {
         });
 
         const routePrefix = "/api";
-        const c1 = new ResourceController<string, Artist>(
+        new ResourceController<string, Artist>(
             routePrefix,
             "artist",
             "artists",
             router,
             iocContainer
         );
-        const c2 = new ResourceController<string, Album>(
+        new ResourceController<string, Album>(
             routePrefix,
             "album",
             "albums",
             router,
             iocContainer
         );
-        const c3 = new ResourceController<string, Song>(
+        new ResourceController<string, Song>(
             routePrefix,
             "song",
             "songs",

@@ -7,14 +7,15 @@
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "clean": "rimraf dist",
-    "build": "npm run clean && npm run lint && tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
     "build:w": "tsc -p tsconfig.json -w",
     "lint": "eslint src/**/*.ts",
     "test:tdd": "mocha --reporter min --require ts-node/register \"src/**/*.spec.ts\" \"integration-tests/**/*.spec.ts\" --watch",
     "test": "mocha --recursive --require ts-node/register \"src/**/*.spec.ts\" \"integration-tests/**/*.spec.ts\"",
     "cover": "nyc npm test",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "ci": "npm run format:check && npm run lint && npm run clean && npm run cover && npm run build"
   },
   "keywords": [
     "alba",

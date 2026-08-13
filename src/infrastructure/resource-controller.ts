@@ -5,6 +5,7 @@ import { TYPES } from "../types";
 import { InMemoryRepository } from "./in-memory-repository";
 import { Repository } from "./repository";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export class ResourceController<PK, T> {
     private logger;
     private repository: Repository<T>;
