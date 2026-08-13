@@ -4,7 +4,7 @@
 export class Pong {
     static response() {
         return {
-            msg: "pong"
+            msg: "pong",
         };
     }
 }

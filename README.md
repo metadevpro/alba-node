@@ -5,6 +5,7 @@ Reference implementation of [CAL Profile](https://github.com/metadevpro/cal) for
 This is work in progress.
 
 ## LICENSE
+
 [Apache 2.0](LICENSE)
 
 ## Credits

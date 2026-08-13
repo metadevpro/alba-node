@@ -28,4 +28,3 @@ export interface Permission {
     allow?: boolean;
     deny?: boolean;
 }
-

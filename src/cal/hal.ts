@@ -3,7 +3,7 @@ export interface HasHalLinks {
 }
 
 export interface HalLinkObject {
-    [ key: string ]: HalLink;
+    [key: string]: HalLink;
 }
 
 export interface HalLink {
