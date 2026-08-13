@@ -124,7 +124,7 @@ describe("CAL profile", () => {
                     }
                     res.should.have.status(200);
                     res.body.should.be.eql({
-                        msg: "pong",
+                        msg: "pong"
                     });
                     done();
                 });

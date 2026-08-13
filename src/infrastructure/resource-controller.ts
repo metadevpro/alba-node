@@ -14,7 +14,7 @@ export class ResourceController<PK, T> {
         public resource: string,
         public pluralName: string,
         private router: Router,
-        private iocContainer: Container,
+        private iocContainer: Container
     ) {
         this.logger = this.iocContainer.get<Logger>(TYPES.Logger);
         this.repository = new InMemoryRepository<T>(<keyof T>"id");
@@ -64,10 +64,10 @@ export class ResourceController<PK, T> {
         });
 
         this.logger.info(
-            "Registered: GET, POST        on " + this.prefix + route,
+            "Registered: GET, POST        on " + this.prefix + route
         );
         this.logger.info(
-            "Registered: GET, PUT, DELETE on " + this.prefix + route + "/:id",
+            "Registered: GET, PUT, DELETE on " + this.prefix + route + "/:id"
         );
     }
 }

@@ -21,13 +21,13 @@ export class App {
         app.use(
             express.urlencoded({
                 extended: true,
-                limit: "50mb",
-            }),
+                limit: "50mb"
+            })
         );
         app.use(
             express.json({
-                limit: "50mb",
-            }),
+                limit: "50mb"
+            })
         );
 
         const iocContainer = configureIoC(options);
@@ -51,9 +51,9 @@ export class App {
                     {
                         name: "smtp",
                         desc: "SMTP server is failing.",
-                        result: false,
-                    },
-                ],
+                        result: false
+                    }
+                ]
             };
             res.status(200).send(fakeDiagnosis);
         });
@@ -64,21 +64,21 @@ export class App {
             "artist",
             "artists",
             router,
-            iocContainer,
+            iocContainer
         );
         const c2 = new ResourceController<string, Album>(
             routePrefix,
             "album",
             "albums",
             router,
-            iocContainer,
+            iocContainer
         );
         const c3 = new ResourceController<string, Song>(
             routePrefix,
             "song",
             "songs",
             router,
-            iocContainer,
+            iocContainer
         );
         app.use(routePrefix, router);
 
