@@ -1,4 +1,4 @@
-import { Repository } from "./Repository";
+import { Repository } from "./repository";
 
 export class InMemoryRepository<T> implements Repository<T> {
     private data: { [key: string]: T };

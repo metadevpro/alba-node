@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES6",
+    "lib": ["ES2022"],
     "module": "commonjs",
+    "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
@@ -10,7 +12,8 @@
     "preserveConstEnums": true,
     "noEmitHelpers": false,
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "types": ["node", "mocha", "chai"]
   },
   "compileOnSave": true,
   "buildOnSave": true,

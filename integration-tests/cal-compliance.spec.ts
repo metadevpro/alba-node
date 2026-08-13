@@ -1,5 +1,6 @@
 import * as chai from "chai";
-const chaiHttp = require("chai-http");
+import chaiHttp, { request } from "chai-http";
+import "chai/register-should";
 
 import { App } from "../src/app";
 
@@ -21,7 +22,7 @@ describe('CAL profile', () => {
     describe('Basic checks', () => {
 
         it('should expose resources', (done) => {
-            chai.request(sut.server)
+            request.execute(sut.server)
                 .get('/api/artists')
                 .end((err, res) => {
                     if (err) {
@@ -33,7 +34,7 @@ describe('CAL profile', () => {
                 });
         });
         it('should expose query', (done) => {
-            chai.request(sut.server)
+            request.execute(sut.server)
                 .get('/api/artists')
                 .end((err, res) => {
                     if (err) {
@@ -45,7 +46,7 @@ describe('CAL profile', () => {
                 });
         });
         it('should expose queryById and returns 404', (done) => {
-            chai.request(sut.server)
+            request.execute(sut.server)
                 .get('/api/artists/1')
                 .end((err, res) => {
                     if (err) {
@@ -56,7 +57,7 @@ describe('CAL profile', () => {
                 });
         });
         it('should expose create/POST', (done) => {
-            chai.request(sut.server)
+            request.execute(sut.server)
                 .post('/api/artists')
                 .send({})
                 .end((err, res) => {
@@ -69,7 +70,7 @@ describe('CAL profile', () => {
                 });
         });
         it('should expose update/PUT', (done) => {
-            chai.request(sut.server)
+            request.execute(sut.server)
                 .put('/api/artists/1')
                 .send({})
                 .end((err, res) => {
@@ -82,7 +83,7 @@ describe('CAL profile', () => {
                 });
         });
         it('should expose delete/DELETE', (done) => {
-            chai.request(sut.server)
+            request.execute(sut.server)
                 .del('/api/artists/1')
                 .end((err, res) => {
                     if (err) {
@@ -94,7 +95,7 @@ describe('CAL profile', () => {
                 });
         });
         it('should expose OPTIONS', (done) => {
-            chai.request(sut.server)
+            request.execute(sut.server)
                 .options('/api/artists')
                 .end((err, res) => {
                     if (err) {
@@ -109,7 +110,7 @@ describe('CAL profile', () => {
 
     describe('CAL-H', () => {
         it('H1 /ping should respond pong', (done) => {
-            chai.request(sut.server)
+            request.execute(sut.server)
                 .get('/api/ping')
                 .end((err, res) => {
                     if (err) {
@@ -123,7 +124,7 @@ describe('CAL profile', () => {
                 });
         });
         it('H2 /metrics is enabled', (done) => {
-            chai.request(sut.server)
+            request.execute(sut.server)
                 .get('/api/metrics')
                 .end((err, res) => {
                     if (err) {
@@ -134,7 +135,7 @@ describe('CAL profile', () => {
                 });
         });
         it('H3 /autodiagnosis is enabled', (done) => {
-            chai.request(sut.server)
+            request.execute(sut.server)
                 .get('/api/autodiagnosis')
                 .end((err, res) => {
                     if (err) {

@@ -1,6 +1,7 @@
 import "reflect-metadata";
-import * as express from "express";
-import * as bodyParser from "body-parser";
+// @types/express only exposes express() as callable via the `export =` + `import ... = require()` form.
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+import express = require("express");
 
 import { configureIoC } from "./inversify.config";
 import { Logger } from "./infrastructure/logger";
@@ -13,15 +14,15 @@ import { Pong } from "./cal/pong";
 import { DiagnosisResponse } from "./cal/diagnosis-response";
 
 export class App {
-    server: express.Application;
+    server!: express.Application;
 
     start(options: any) {
         const app = express();
-        app.use(bodyParser.urlencoded({
+        app.use(express.urlencoded({
             extended: true,
             limit: '50mb'
         }));
-        app.use(bodyParser.json({
+        app.use(express.json({
             limit: '50mb'
         }));
 
@@ -59,7 +60,7 @@ export class App {
         const c3 = new ResourceController<string, Song>(routePrefix, 'song', 'songs', router, iocContainer);
         app.use(routePrefix, router);
 
-        const port = +process.env.PORT || 5000;
+        const port = Number(process.env.PORT) || 5000;
         app.listen(port);
         logger.log('App running on port: ' + port);
 

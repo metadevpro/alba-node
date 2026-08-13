@@ -31,21 +31,21 @@ export class ResourceController<PK, T> {
                 const response = await repo.get(criteria);
                 res.send(response);
             }
-            catch (error) {
+            catch (error: any) {
                 console.error(error.message);
                 res.status(500).json(error);
             }
         });
         this.router.get(route + '/:id', async (req, res) => {
             try {
-                const response = await repo.getById(req.params.id);
+                const response = await repo.getById(String(req.params.id));
                 if (!response) {
                     res.status(404).end();
                     return;
                 }
                 res.send(response);
             }
-            catch (error) {
+            catch (error: any) {
                 console.error(error.message);
                 res.status(500).json(error);
             }
@@ -57,11 +57,11 @@ export class ResourceController<PK, T> {
         });
         this.router.put(route + '/:id', async (req, res) => {
             const payload = <T> req.body;
-            const response = await repo.update(req.params.id, payload);
+            const response = await repo.update(String(req.params.id), payload);
             res.send(response);
         });
         this.router.delete(route + '/:id', async (req, res) => {
-            const response = await repo.delete(req.params.id);
+            const response = await repo.delete(String(req.params.id));
             res.send(response);
         });
 
